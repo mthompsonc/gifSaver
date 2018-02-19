@@ -32,6 +32,20 @@ function ingreso(){
   });
 }
 
+/*
+* Esta función permitirá que un usuario recupere su contraseña.
+*/
+$('#forgetpass').click(function () {
+    var auth = firebase.auth();
+    var emailAddress = prompt('Ingresa tu correo');
+    auth.sendPasswordResetEmail(emailAddress).then(function() {
+    // Email sent.
+    }).catch(function(error) {
+  // An error happened.
+   });
+  });
+
+
 /** Función de Firebase que observa qué sucede con el usuario, si se conectó o no, si existe verificación del email, etc. */
 
 function observador(){
@@ -123,119 +137,6 @@ $(document).ready(function(){
   $('#myHome').hide();
   $('#profile2').hide();
 })
-
-/** Función para postear recetas. */
-
-$('#post').click(function(){
-  /** Guardando todos los valores en una variable. */
-  var name= $('#title').val();
-  var photo= $('#urlInput').val();
-  var portion= $('#portion').val();
-  var ingredients= $('#ingredients').val();
-  var recipe= $('#recipe').val();
-  var categorias1= $('#categorias1').val();
-  /** Vaciando los input. */
-  $('#title').val('');
-  $('#urlInput').val('');
-  $('#portion').val('');
-  $('#ingredients').val('');
-  $('#recipe').val('');
-  $('categorias1').val('0');
-
-  /** Contenedor donde irán los nuevos comentarios. */
-  var contenedor= $('.newpost');
-  /** Ingresando comentario en una caja de comentario. */
-  contenedor.append('<div class=box> <h3 class= text-center>'+ name + '</h3> <div> <img class="photobox center-block" src= ' + photo + '  alt=...> </div> <h6><b>Porciones:</b> ' + portion + '</h6> <p><b> Ingredientes:</b> ' + ingredients + '</p> <p><b> Instrucciones:</b> ' + recipe + '</p><p><b> Tipo de Comida:</b> ' + categorias1 + '</p></div>' );
-})
-
-/** Función que muestra las recetas*/
-
-console.log(data);
-
-var cont = $('.container');
-var platoFondo = $('.platoFondo');
-var postre = $('.postre');
-var bebestible = $('.bebestible');
-var panaderiaPasteleria = $('.panaderiaPasteleria');
-var everyone = $('.everyone');
-
-/** Evento que dá funcionalidad al select. */
-
-$('#categorias').on('change', function(){
-
-  /** guardando el valor del select en la variable selection. */
-
-  var selection = $('#categorias').val();
-
-  /** Filtro de los platos de fondo. */
-
-  if (selection === 'platoFondo') {
-    for (var i = 0; i < data.length; i++){
-      if (data[i].tipo === 'plato de fondo') {
-        postre.children().remove();
-        bebestible.children().remove();
-        panaderiaPasteleria.children().remove();
-        everyone.children().remove();
-        platoFondo.append('<div class=box> <h3 class= text-center>'+ data[i].nombre + '</h3> <div> <img class="photobox center-block" src="assets/' + data[i].foto + '"> </div> <h6><b>Porciones:</b> ' + data[i].porciones + '</h6> <p><b> Ingredientes:</b> ' + data[i].ingredientes + '</p> <p><b> Instrucciones:</b> ' + data[i].receta + '</p><p><b> Tipo de Comida:</b> ' + data[i].tipo + '</p></div>')
-      }
-    }
-  }
-
-  /** Filtro de los postres. */
-
-  if (selection === 'postre') {
-    for (var i = 0; i < data.length; i++){
-      if (data[i].tipo === 'postre') {
-        platoFondo.children().remove();
-        bebestible.children().remove();
-        panaderiaPasteleria.children().remove();
-        everyone.children().remove();
-        postre.append('<div class=box> <h3 class= text-center>'+ data[i].nombre + '</h3> <div> <img class="photobox center-block" class= photobox src="assets/' + data[i].foto + '"> </div> <h6><b>Porciones:</b> ' + data[i].porciones + '</h6> <p><b> Ingredientes:</b> ' + data[i].ingredientes + '</p> <p><b> Instrucciones:</b> ' + data[i].receta + '</p><p><b> Tipo de Comida:</b> ' + data[i].tipo + '</p></div>')
-      }
-    }
-  }
-
-  /** Filtro de los platos de los bebestibles. */
-
-  if (selection === 'bebestible') {
-    for (var i = 0; i < data.length; i++){
-      if (data[i].tipo === 'bebestible') {
-        platoFondo.children().remove();
-        postre.children().remove();
-        panaderiaPasteleria.children().remove();
-        everyone.children().remove();
-        bebestible.append('<div class=box> <h3 class= text-center>'+ data[i].nombre + '</h3> <div> <img class="photobox center-block" src="assets/' + data[i].foto + '"> </div> <h6><b>Porciones:</b> ' + data[i].porciones + '</h6> <p><b> Ingredientes:</b> ' + data[i].ingredientes + '</p> <p><b> Instrucciones:</b> ' + data[i].receta + '</p><p><b> Tipo de Comida:</b> ' + data[i].tipo + '</p></div>')
-      }
-    }
-  }
-
-  /** Filtro de la Patelería/panadería. */
-
-  if (selection === 'panaderiaPasteleria') {
-    for (var i = 0; i < data.length; i++){
-      if (data[i].tipo === 'panaderia/pasteleria') {
-        platoFondo.children().remove();
-        postre.children().remove();
-        bebestible.children().remove();
-        everyone.children().remove();
-        panaderiaPasteleria.append('<div class=box> <h3 class= text-center>'+ data[i].nombre + '</h3> <div> <img class="photobox center-block" src="assets/' + data[i].foto + '"> </div> <h6><b>Porciones:</b> ' + data[i].porciones + '</h6> <p><b> Ingredientes:</b> ' + data[i].ingredientes + '</p> <p><b> Instrucciones:</b> ' + data[i].receta + '</p><p><b> Tipo de Comida:</b> ' + data[i].tipo + '</p></div>')
-      }
-    }
-  }
-
-  /** Filtro de todas las recetas. */
-
-  if (selection === 'everyone') {
-    platoFondo.children().remove();
-    postre.children().remove();
-    bebestible.children().remove();
-    panaderiaPasteleria.children().remove();
-    for (var i = 0; i < data.length; i++){
-        everyone.append('<div class=box> <h3 class= text-center>'+ data[i].nombre + '</h3> <div> <img class="photobox center-block" src="assets/' + data[i].foto + '"> </div> <h6><b>Porciones:</b> ' + data[i].porciones + '</h6> <p><b> Ingredientes:</b> ' + data[i].ingredientes + '</p> <p><b> Instrucciones:</b> ' + data[i].receta + '</p><p><b> Tipo de Comida:</b> ' + data[i].tipo + '</p></div>')
-    }
-  }
-})
-
 
 
 //test de API
