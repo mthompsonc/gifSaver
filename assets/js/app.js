@@ -1,3 +1,4 @@
+
 /** Función para crear registro de usuario en Firebase*/
 
 function registrar(){
@@ -234,3 +235,20 @@ $('#categorias').on('change', function(){
     }
   }
 })
+
+
+
+//test de API
+
+var GphApiClient = require('giphy-js-sdk-core')
+client = GphApiClient("BvtppFigGJoEOIXczXRMJsZm15XqDjry")
+
+client.search('gifs', {"q": "value"})
+  .then((response) => {
+    response.data.forEach((gifObject) => {
+      console.log(gifObject)
+    })
+  })
+  .catch((err) => {
+
+  })

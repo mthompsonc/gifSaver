@@ -4,7 +4,8 @@
   "description": "This is a web-app that will save your fav gifs (with the GIPHY's API)",
   "main": "assets/app.js",
   "dependencies": {
-    "giphy-js-sdk-core": "^1.0.3"
+    "giphy-js-sdk-core": "^1.0.3",
+    "uniq": "^1.0.1"
   },
   "devDependencies": {},
   "scripts": {
