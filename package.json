@@ -1,0 +1,23 @@
+{
+  "name": "gifsaver",
+  "version": "1.0.0",
+  "description": "This is a web-app that will save your fav gifs (with the GIPHY's API)",
+  "main": "assets/app.js",
+  "dependencies": {
+    "giphy-js-sdk-core": "^1.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mthompsonc/gifSaver.git"
+  },
+  "author": "Andrea Díaz, María Paz Thompson, Sabrina Villalobos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mthompsonc/gifSaver/issues"
+  },
+  "homepage": "https://github.com/mthompsonc/gifSaver#readme"
+}
