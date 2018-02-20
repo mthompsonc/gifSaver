@@ -162,16 +162,35 @@ $(document).ready(function() {
 //ideal poder hacer callback y llamar tmb de .click con el
 //btn de busqueda
 $(document).ready(function() {
+  //funcion para que al apretar enter tome el valor del input
   $('input').keypress(function(event) {
     if(event.which == 13) {
+//vacia el contenedor al hacer otra busqueda
+      $( ".container" ).empty();
+//toma el valor del input y reemplaza los espacios con +
       var value = $('input').val();
       value = value.trim().replace(/\s+/g, '+');
+//inserta el valor del input en la url para hacer la busqueda
       var url = 'http://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q=' + value + '"&limit=9&offset=0&rating=R';
+//llama a la api, .getJSON es una abreviacion de:
+/*
+$.ajax({
+dataType: "json",
+url: url,
+data: data,
+success: success
+});
+*/
       $.getJSON(url, function(object) {
+// forEach metodo que enlista cada item del arreglo
         object.data.forEach(function(gif) {
-          var url = gif.images.original.url;
+/*gif.images.fixed_height.url lo da la api para que las
+*imagenes tengan un tamaño fijo
+*/
+          var url = gif.images.fixed_height.url;
+//inyecta la url en el contenedor de la imagen
           var image = $('<img src=' + url + ' />');
-          image.appendTo($('body'));
+          image.appendTo($('.container'));
         });
       });
       event.preventDefault();
