@@ -1,4 +1,3 @@
-$( document ).ready(function(){
 /** Función para crear registro de usuario en Firebase*/
 
 function registrar() {
@@ -157,6 +156,7 @@ $(document).ready(function() {
 })
 
 
+
 //test de API buscar con palabra, falta borrar resultados
 //al hacer uno nuevo
 //ideal poder hacer callback y llamar tmb de .click con el
@@ -176,6 +176,5 @@ $(document).ready(function() {
       });
       event.preventDefault();
     }
-  });
   });
 });

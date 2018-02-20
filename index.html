@@ -1,128 +1,114 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GifSaver</title>
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-
-  <!-- Iniciando Firebase -->
-  
-
-<script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GifSaver</title>
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <!-- Iniciando Firebase -->
+    
+    <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
     apiKey: "AIzaSyDIQsuTLTE4MGu9RHlk7PJhtsRVT-PB1-I",
     authDomain: "gifsaver-82601.firebaseapp.com",
     databaseURL: "https://gifsaver-82601.firebaseio.com",
     projectId: "gifsaver-82601",
     storageBucket: "",
     messagingSenderId: "885522498430"
-  };
-  firebase.initializeApp(config);
-</script>
-
-  <script type="text/javascript" src="assets/js/jquery-3.2.1.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-  <link rel="stylesheet" href="assets/css/style.css">
-</head>
-
-<body>
-  <!-- Inicio header -->
-  <header>
-    <nav class="navbar navbar-fixed-top navbar-default">
-      <div class="container-fluid">
-        <!-- Menú hamburguesa versión móvil -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+    };
+    firebase.initializeApp(config);
+    </script>
+    <script type="text/javascript" src="assets/js/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+  </head>
+  <body>
+    <!-- Inicio header -->
+    <header>
+      <nav class="navbar navbar-fixed-top navbar-default">
+        <div class="container-fluid">
+          <!-- Menú hamburguesa versión móvil -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-          </button>
-          <!-- Menú versión web -->
-          <a class="navbar-brand" href="#"><strong>GifSaver</strong></a>
+            </button>
+            <!-- Menú versión web -->
+            <a class="navbar-brand" href="#"><img class="logo" src="assets/img/logo.png" alt=""></a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right" id="menu">
+              <li><a href="#" id="aboutus">Quiénes somos?</a></li>
+              <li><a data-toggle="modal" data-target="#squarespaceModal" id="register">Registro/Inicio Sesión</a></li>
+            </ul>
+            <form class="navbar-form navbar-right">
+              <div class="form-group">
+                <input type="text" class="form-control search" placeholder="Buscar">
+              </div>
+            </form>
+          </div>
         </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right" id="menu">
-            <li><a href="#" id="aboutus">Quiénes somos?</a></li>
-            <li><a data-toggle="modal" data-target="#squarespaceModal" id="register">Registro/Inicio Sesión</a></li>
-          </ul>
-          <form class="navbar-form navbar-right">
-            <div class="form-group">
-              <input type="text" class="form-control search" id="searchBtn" type="submit" placeholder="Buscar"><button class=" btn btn-default">Buscar</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </nav>
-  </header>
-  <!-- Fin header -->
-
-  <!-- Modal registro -->
-  <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-          <h3 class="modal-title" id="lineModalLabel">Únete a GifSaver</h3>
-        </div>
-        <div class="modal-body">
-          <!-- content goes here -->
-          <h4><strong>Registro</strong></h4>
-          <form>
-            <div class="form-group">
-              <label>Correo electrónico</label>
-              <input type="email" class="form-control" id="email" placeholder="Ingresa tu e-mail">
-            </div>
-            <div class="form-group">
-              <label>Contraseña</label>
-              <input type="password" class="form-control" id="password" placeholder="Ingresa contraseña">
-            </div>
-          </form>
-          <button type="button" class="btn btn-warning" onclick="registrar()" id="btnregistro">Regístrate</button>
-          <br>
-          <form>
-            <div class="form-group login-help">
-              <h4><strong>Inicio de sesión</strong></h4>
-              <label>Correo electrónico</label>
-              <input type="email" class="form-control" id="email2" placeholder="Ingresa tu e-mail">
-            </div>
-            <div class="form-group">
-              <label>Contraseña</label>
-              <input type="password" class="form-control" id="password2" placeholder="Ingresa contraseña">
-            </div>
-          </form>
-          <button type="button" class="btn btn-warning" onclick="ingreso()">Inicia Sesión</button>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-warning" id="forgetpass" >Olvidaste tu constraseña?</button>
+      </nav>
+    </header>
+    <!-- Fin header -->
+    <!-- Modal registro -->
+    <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            <h3 class="modal-title" id="lineModalLabel">Únete a GifSaver</h3>
+          </div>
+          <div class="modal-body">
+            <!-- content goes here -->
+            <h4><strong>Registro</strong></h4>
+            <form>
+              <div class="form-group">
+                <label>Correo electrónico</label>
+                <input type="email" class="form-control" id="email" placeholder="Ingresa tu e-mail">
+              </div>
+              <div class="form-group">
+                <label>Contraseña</label>
+                <input type="password" class="form-control" id="password" placeholder="Ingresa contraseña">
+              </div>
+            </form>
+            <button type="button" class="btn btn-warning" onclick="registrar()" id="btnregistro">Regístrate</button>
+            <br>
+            <form>
+              <div class="form-group login-help">
+                <h4><strong>Inicio de sesión</strong></h4>
+                <label>Correo electrónico</label>
+                <input type="email" class="form-control" id="email2" placeholder="Ingresa tu e-mail">
+              </div>
+              <div class="form-group">
+                <label>Contraseña</label>
+                <input type="password" class="form-control" id="password2" placeholder="Ingresa contraseña">
+              </div>
+            </form>
+            <button type="button" class="btn btn-warning" onclick="ingreso()">Inicia Sesión</button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-warning" id="forgetpass" >Olvidaste tu constraseña?</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- Secciones -->
-  <br>
-  <br>
-  <br>
-     <section class="home">
+    <!-- Secciones -->
+    <section class="home">
       <div class="container">
         <img class="imgContainer" src=" " alt="">
-        <button class="btn btn-default reset">Reset</button>
       </div>
       
-
-
-<!-- scripts -->
-<script src="assets/js/bundle.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="assets/js/app.js"></script>
-</body>
-
+    </section>
+    <!-- scripts -->
+    <script src="assets/js/bundle.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
+  </body>
 </html>

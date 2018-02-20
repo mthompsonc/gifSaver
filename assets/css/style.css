@@ -1,0 +1,13 @@
+body{
+  margin-top: 4em;
+}
+
+.navbar{
+  position: fixed;
+}
+
+.logo{
+  width: 3.4em;
+  margin-top: -16px;
+}
+
