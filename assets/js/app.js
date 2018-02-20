@@ -177,8 +177,8 @@ console.log(giphyURL)
 }
 $('.imgContainer').attr('src', giphyURL);
 });
-$('#reset_button').on('click', function(){
-$('#here_is_gif').attr("src",'');
+$('.reset').on('click', function(){
+$('#.imgContainer').attr("src",'');
 })
 return false;
 });
