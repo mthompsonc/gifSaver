@@ -1,3 +1,4 @@
+ $( document ).ready(function(){
 
 /** Función para crear registro de usuario en Firebase*/
 
@@ -139,17 +140,43 @@ $(document).ready(function(){
 })
 
 
-//test de API
+//test de API buscar con palabra
+$('.search').keypress(function (e) {
+ var key = e.which;
+ if(key === 13)
+  var input = $('.search').val().trim();
+  input = input.replace(/ /g, "+");
+var api = 'http://api.giphy.com/v1/gifs/search?q=' + input + '&api_key=BvtppFigGJoEOIXczXRMJsZm15XqDjry';
+/*
+var arrayStr = ["elem1", "elem2", "elem3"];
+var i = arrayStr.length;
+$.ajax({url: api, method: 'GET'}).done(function(response){
+console.log(response.data);
+var giphyURL = {
+for (i = 0; i < arrayStr.length; i++) {
+  console.log(arrayStr[i]);
+}
+console.log(giphyURL)
+}
+$('.imgContainer').attr('src', giphyURL);
+});
+$('#reset_button').on('click', function(){
+$('#here_is_gif').attr("src",'');
+})
+return false;
+});
 
-var GphApiClient = require('giphy-js-sdk-core')
-client = GphApiClient("BvtppFigGJoEOIXczXRMJsZm15XqDjry")
+});*/
+$.ajax({url: api, method: 'GET'}).done(function(response){
+console.log(response.data);
+var giphyURL = response.data[0].images.fixed_height.url;
+console.log(giphyURL)
+$('.imgContainer').attr('src', giphyURL);
+});
+$('.reset').on('click', function(){
+  $('.imgContainer').attr("src",'');
+})
 
-client.search('gifs', {"q": "value"})
-  .then((response) => {
-    response.data.forEach((gifObject) => {
-      console.log(gifObject)
-    })
-  })
-  .catch((err) => {
-
-  })
+return false;
+})
+});
