@@ -157,42 +157,25 @@ $(document).ready(function() {
 })
 
 
-//test de API buscar con palabra
-$('.search').keypress(function (e) {
- var key = e.which;
- if(key === 13)
-  var input = $('.search').val().trim();
-  input = input.replace(/ /g, "+");
-var api = 'http://api.giphy.com/v1/gifs/search?q=' + input + '&api_key=BvtppFigGJoEOIXczXRMJsZm15XqDjry';
-/*
-var arrayStr = ["elem1", "elem2", "elem3"];
-var i = arrayStr.length;
-$.ajax({url: api, method: 'GET'}).done(function(response){
-console.log(response.data);
-var giphyURL = {
-for (i = 0; i < arrayStr.length; i++) {
-  console.log(arrayStr[i]);
-}
-console.log(giphyURL)
-}
-$('.imgContainer').attr('src', giphyURL);
-});
-$('.reset').on('click', function(){
-$('#.imgContainer').attr("src",'');
-})
-return false;
-});
-
-});*/
-$.ajax({url: api, method: 'GET'}).done(function(response){
-console.log(response.data);
-var giphyURL = response.data[0].images.fixed_height.url;
-console.log(giphyURL)
-$('.imgContainer').attr('src', giphyURL);
-});
-$('.reset').on('click', function(){
-  $('.imgContainer').attr("src",'');
-})
-return false;
-})
+//test de API buscar con palabra, falta borrar resultados
+//al hacer uno nuevo
+//ideal poder hacer callback y llamar tmb de .click con el
+//btn de busqueda
+$(document).ready(function() {
+  $('input').keypress(function(event) {
+    if(event.which == 13) {
+      var value = $('input').val();
+      value = value.trim().replace(/\s+/g, '+');
+      var url = 'http://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q=' + value + '"&limit=9&offset=0&rating=R';
+      $.getJSON(url, function(object) {
+        object.data.forEach(function(gif) {
+          var url = gif.images.original.url;
+          var image = $('<img src=' + url + ' />');
+          image.appendTo($('body'));
+        });
+      });
+      event.preventDefault();
+    }
+  });
+  });
 });
