@@ -1,8 +1,8 @@
 /** Función para crear registro de usuario en Firebase*/
 
 function registrar() {
-  var email = document.getElementById('email').value;
-  var password = document.getElementById('password').value;
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
 
   firebase.auth().createUserWithEmailAndPassword(email, password)
   .then( function() {
@@ -36,8 +36,8 @@ function verificar() {
 /** Función para identificar sign in en Firebase. */
 
 function ingreso() {
-  var email2 = document.getElementById('email2').value;
-  var password2 = document.getElementById('password2').value;
+  const email2 = document.getElementById('email2').value;
+  const password2 = document.getElementById('password2').value;
   firebase.auth().signInWithEmailAndPassword(email2, password2).then(() => {
     location.reload();
   }).catch(function(error) {
@@ -48,6 +48,7 @@ function ingreso() {
     // ...
   });
 }
+
 
 /*
  * Esta función permitirá que un usuario recupere su contraseña.
@@ -97,21 +98,21 @@ function aparece() {
   contenedor.innerHTML = `
   <li><a href="#" id="home">Inicio</a></li>
   <li><a href="#" id="profile">My GifSaver</a></li>
+  <li><a href="#" id="aboutus">About us</a></li>
   <li><a href="#" id="close" onclick="cerrar()">Cerrar Sesión</a></li>
   `
 
   $('#home').click(function() {
-    $('#myHome').show();
-    $('#about').hide();
-    $('#profile2').hide();
+    $('#home1').show();
+    $('#aboutus1').hide();
+    $('#myGifSave1').hide();
   })
 
   $('#profile').click(function() {
-    $('#myHome').hide();
-    $('#about').hide();
-    $('#profile2').show();
+    $('#home1').hide();
+    $('#aboutus1').hide();
+    $('#myGifSave1').show();
   })
-
 
 }
 
@@ -132,28 +133,18 @@ function cerrar() {
 
 function nouser() {
   $('#aboutus').click(function() {
-    $('#about').show();
-    $('#myHome').hide();
-    $('#profile2').hide();
+    $('#aboutus1').show();
+    $('#home1').hide();
   })
 }
 
 /** Se activa cuando la función observador (de Firebase) nota que hay un usuario logueado. */
 function useractive() {
-  $('#about').hide();
-  $('#myHome').show();
-  $('#profile2').hide();
+  $('#home1').show();
+  $('#about1').hide();
+  $('#myGifSave1').hide();
 }
 
-
-/** Función que se activa al cargar el documento. */
-
-$(document).ready(function() {
-
-  $('#about').show();
-  $('#myHome').hide();
-  $('#profile2').hide();
-})
 
 
 
@@ -162,6 +153,9 @@ $(document).ready(function() {
 //ideal poder hacer callback y llamar tmb de .click con el
 //btn de busqueda
 $(document).ready(function() {
+  $('#home1').show();
+  $('#myGifSave1').hide();
+  $('#aboutus1').hide();
   //funcion para que al apretar enter tome el valor del input
   $('input').keypress(function(event) {
     if(event.which == 13) {
