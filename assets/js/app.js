@@ -136,6 +136,11 @@ function nouser() {
     $('#aboutus1').show();
     $('#home1').hide();
   })
+
+    $('#home').click(function() {
+    $('#aboutus1').hide();
+    $('#home1').show();
+  })
 }
 
 /** Se activa cuando la función observador (de Firebase) nota que hay un usuario logueado. */
@@ -143,6 +148,12 @@ function useractive() {
   $('#home1').show();
   $('#about1').hide();
   $('#myGifSave1').hide();
+
+  $('#aboutus').click(function() {
+    $('#aboutus1').show();
+    $('#home1').hide();
+    $('#myGifSave1').hide();
+  })
 }
 
 
@@ -156,9 +167,14 @@ $(document).ready(function() {
  $('input').keypress(function(event) {
     if(event.which == 13) {
 //vacia el contenedor al hacer otra busqueda
+      $('#home1').show();
+      $('#myGifSave1').hide();
+      $('#aboutus1').hide();
+
       $( ".containerImg" ).empty();
 //toma el valor del input y reemplaza los espacios con +
       var value = $('input').val();
+      $('input').val('');
       value = value.trim().replace(/\s+/g, '+');
 //inserta el valor del input en la url para hacer la busqueda
       var url = 'http://api.giphy.com/v1/gifs/search?api_key=52Fc9WimSIVx01b8PKW9ICvYEHG4LNQ5&q=' + value + '"&limit=9&offset=0&rating=R';
@@ -181,7 +197,7 @@ success: success
           var url = gif.images.fixed_height.url;
           console.log(url)
 //inyecta la url en el contenedor de la imagen
-          var image = $('<div class="col-sm-4"><img src=' + url + ' /></div>');
+          var image = $('<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="margin-top: 1em; margin-bottom: 1em;"><img class="center-block img-responsive" src=' + url + ' /></div>');
           image.appendTo($('.containerImg'));
         });
       });
