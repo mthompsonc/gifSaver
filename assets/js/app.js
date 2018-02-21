@@ -182,14 +182,19 @@ success: success
 });
 */
       $.getJSON(url, function(object) {
+        console.log(url)
 // forEach metodo que enlista cada item del arreglo
         object.data.forEach(function(gif) {
+          console.log(object.data)
 /*gif.images.fixed_height.url lo da la api para que las
 *imagenes tengan un tamaño fijo
 */
           var url = gif.images.fixed_height.url;
+          console.log(url)
 //inyecta la url en el contenedor de la imagen
           var image = $('<img src=' + url + ' />');
+          /*image.appendTo($('.col-sm-4'));*/
+          //ayuda no se porque no se appendea en la columna
           image.appendTo($('.container'));
         });
       });
