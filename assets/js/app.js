@@ -146,26 +146,22 @@ function useractive() {
 }
 
 
-
-
-//test de API buscar con palabra, falta borrar resultados
-//al hacer uno nuevo
-//ideal poder hacer callback y llamar tmb de .click con el
-//btn de busqueda
 $(document).ready(function() {
   $('#home1').show();
   $('#myGifSave1').hide();
   $('#aboutus1').hide();
-  //funcion para que al apretar enter tome el valor del input
-  $('input').keypress(function(event) {
+
+
+//Funciones API,giphy
+ $('input').keypress(function(event) {
     if(event.which == 13) {
 //vacia el contenedor al hacer otra busqueda
-      $( ".container" ).empty();
+      $( ".containerImg" ).empty();
 //toma el valor del input y reemplaza los espacios con +
       var value = $('input').val();
       value = value.trim().replace(/\s+/g, '+');
 //inserta el valor del input en la url para hacer la busqueda
-      var url = 'http://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q=' + value + '"&limit=9&offset=0&rating=R';
+      var url = 'http://api.giphy.com/v1/gifs/search?api_key=52Fc9WimSIVx01b8PKW9ICvYEHG4LNQ5&q=' + value + '"&limit=9&offset=0&rating=R';
 //llama a la api, .getJSON es una abreviacion de:
 /*
 $.ajax({
@@ -176,7 +172,6 @@ success: success
 });
 */
       $.getJSON(url, function(object) {
-        console.log(url)
 // forEach metodo que enlista cada item del arreglo
         object.data.forEach(function(gif) {
           console.log(object.data)
@@ -186,10 +181,8 @@ success: success
           var url = gif.images.fixed_height.url;
           console.log(url)
 //inyecta la url en el contenedor de la imagen
-          var image = $('<img src=' + url + ' />');
-          /*image.appendTo($('.col-sm-4'));*/
-          //ayuda no se porque no se appendea en la columna
-          image.appendTo($('.container'));
+          var image = $('<div class="col-sm-4"><img src=' + url + ' /></div>');
+          image.appendTo($('.containerImg'));
         });
       });
       event.preventDefault();
