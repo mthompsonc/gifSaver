@@ -197,7 +197,7 @@ success: success
           var url = gif.images.fixed_height.url;
           console.log(url)
 //inyecta la url en el contenedor de la imagen
-          var image = $('<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="margin-top: 1em; margin-bottom: 1em;"><img class="center-block img-responsive" src=' + url + ' /></div>');
+          var image = $('<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="margin-top: 1em; margin-bottom: 1em;"><img class="center-block img-responsive img-thumbnail" src=' + url + ' /></div>');
           image.appendTo($('.containerImg'));
         });
       });
