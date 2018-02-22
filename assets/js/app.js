@@ -248,12 +248,13 @@ success: success
 //Funciones API,giphy
  $('input').keypress(function(event) {
     if(event.which == 13) {
+      $( ".containerImg" ).empty();
+      $('#alert').empty();
 //vacia el contenedor al hacer otra busqueda
       $('#home1').show();
       $('#myGifSave1').hide();
       $('#aboutus1').hide();
 
-      $( ".containerImg" ).empty();
       $('#alert').append('<div class="row"><div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><div class="alert text-center"><p><strong>Alert: Only if you are registered you can have full access to download gifs. </strong></p></div></div></div>');
 //toma el valor del input y reemplaza los espacios con +
       var value = $('input').val();
