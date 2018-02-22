@@ -47,11 +47,11 @@
             <ul class="nav navbar-nav navbar-right" id="menu">
               <li><a href="#" id="home">Home</a></li>
               <li><a href="#" id="aboutus">About Us</a></li>
-              <li><a data-toggle="modal" data-target="#squarespaceModal" id="register">Registro/Inicio Sesión</a></li>
+              <li><a data-toggle="modal" data-target="#squarespaceModal" id="register">Sign Up/Log In</a></li>
             </ul>
             <form class="navbar-form navbar-right">
               <div class="form-group">
-                <input type="text" class="form-control search" placeholder="Buscar">
+                <input type="text" class="form-control search" placeholder="Search">
               </div>
             </form>
           </div>
@@ -65,38 +65,38 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-            <h3 class="modal-title" id="lineModalLabel">Únete a GifSaver</h3>
+            <h3 class="modal-title" id="lineModalLabel">Join GifSaver</h3>
           </div>
           <div class="modal-body">
             <!-- content goes here -->
-            <h4><strong>Registro</strong></h4>
+            <h4><strong>Log In</strong></h4>
             <form>
               <div class="form-group">
-                <label>Correo electrónico</label>
-                <input type="email" class="form-control" id="email" placeholder="Ingresa tu e-mail">
+                <label>Email</label>
+                <input type="email" class="form-control" id="email" placeholder="E-mail">
               </div>
               <div class="form-group">
-                <label>Contraseña</label>
-                <input type="password" class="form-control" id="password" placeholder="Ingresa contraseña">
+                <label>Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password">
               </div>
             </form>
-            <button type="button" class="btn btn-warning" onclick="registrar()" id="btnregistro">Regístrate</button>
+            <button type="button" class="btn btn-warning" onclick="registrar()" id="btnregistro">Sign Up</button>
             <br>
             <form>
               <div class="form-group login-help">
-                <h4><strong>Inicio de sesión</strong></h4>
-                <label>Correo electrónico</label>
-                <input type="email" class="form-control" id="email2" placeholder="Ingresa tu e-mail">
+                <h4><strong>Log In</strong></h4>
+                <label>Email</label>
+                <input type="email" class="form-control" id="email2" placeholder="E-mail">
               </div>
               <div class="form-group">
-                <label>Contraseña</label>
-                <input type="password" class="form-control" id="password2" placeholder="Ingresa contraseña">
+                <label>Password</label>
+                <input type="password" class="form-control" id="password2" placeholder="Password">
               </div>
             </form>
-            <button type="button" class="btn btn-warning" onclick="ingreso()">Inicia Sesión</button>
+            <button type="button" class="btn btn-warning" onclick="ingreso()">Log In</button>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-warning" id="forgetpass" >Olvidaste tu constraseña?</button>
+            <button type="button" class="btn btn-warning" id="forgetpass" >Forgot your password?</button>
           </div>
         </div>
       </div>
@@ -150,6 +150,19 @@
             <p>We are Andrea, Maripi and Sabrina, a team of front-end developers. We were assigned to create a single web app using any API and Firebase.
             That's the reason we created Gifsaver, because everyone loves gifs! and so do we.</p>
           </div>
+          <div class="row">
+        <div class="col-xs-12 col-md-3" style="@media (
+    min-width: 992px)  bootstrap.css:1958  .col-md-3 {      width: 24%;  }
+    width: 24%;
+"><img class="avatars img-responsive center-block" id="andrea" src="assets/img/andre.png" alt=""></div>
+        <div class="col-xs-12 col-md-3" style="@media (
+    min-width: 992px)  bootstrap.css:1958  .col-md-3 {      width: 24%;  }
+    width: 24%;
+"><img class="avatars img-responsive center-block" id="maripi" src="assets/img/mari.png" alt=""></div>
+        <div class="col-xs-12 col-md-3" style="@media (
+    min-width: 992px)  bootstrap.css:1958  .col-md-3 {      width: 24%;  }
+    width: 24%;
+"><img class="avatars img-responsive center-block" id="sabrina" src="assets/img/sab.png" alt=""></div>
         </div>
       </div>
     </section>

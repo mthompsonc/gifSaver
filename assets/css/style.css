@@ -15,11 +15,6 @@ body{
   background: #000;
 }
 
-
-.aboutus1 {
-  background-color:red;
-}
-
 .warning{
   width: 100%;
   height: 3em;
@@ -32,4 +27,12 @@ body{
 
 #alert{
   color: #DB1301;
+}
+
+.avatars{
+  width:299px;
+}
+
+#aboutus1{
+  padding-top:2%;
 }

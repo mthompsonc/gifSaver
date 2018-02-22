@@ -70,7 +70,7 @@ function ingreso() {
  */
 $('#forgetpass').click(function() {
   var auth = firebase.auth();
-  var emailAddress = prompt('Ingresa tu correo');
+  var emailAddress = prompt('Enter the email address you used to create your account');
   auth.sendPasswordResetEmail(emailAddress).then(function() {
     // Email sent.
   }).catch(function(error) {
@@ -292,3 +292,37 @@ success: success
     }
   });
  }
+  //img hover
+$(function(){
+  $("#andrea").on({
+   mouseenter: function(){
+    $(this).attr('src','assets/img/andre2.png');
+  },
+  mouseleave: function(){
+    $(this).attr('src','assets/img/andre.png');
+  }
+  });
+  
+});
+$(function(){
+  $("#maripi").on({
+   mouseenter: function(){
+    $(this).attr('src','assets/img/mari2.png');
+  },
+  mouseleave: function(){
+    $(this).attr('src','assets/img/mari.png');
+  }
+  });
+  
+});
+$(function(){
+  $("#sabrina").on({
+   mouseenter: function(){
+    $(this).attr('src','assets/img/sab2.png');
+  },
+  mouseleave: function(){
+    $(this).attr('src','assets/img/sab.png');
+  }
+  });
+  
+});
