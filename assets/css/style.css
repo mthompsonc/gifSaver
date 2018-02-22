@@ -1,10 +1,20 @@
 body{
   margin-top: 4em;
+  font-family: 'Patua One', cursive;
 }
 
 .navbar{
   position: fixed;
+  background: url(../img/source.gif) no-repeat fixed;
+ -webkit-background-size: 15%;
+     -moz-background-size: 15%;
+       -o-background-size: 15%;
+          background-size: 15%;
+          border-right: 50px solid transparent;
+          background-position: 72px -20px; 
+
 }
+
 
 .logo{
   width: 3.4em;
@@ -30,9 +40,30 @@ body{
 }
 
 .avatars{
-  width:100%;
+  width:225px;
+  padding-left:5%;
 }
 
 #aboutus1{
   padding-top:2%;
+}
+
+#cats{
+  background-color: #ff86ad;
+  color:#fff;
+}
+
+#dogs{
+  background-color:#ffdb85;
+  color:#fff;
+}
+
+#babies{
+  background-color:#5da5ff;
+  color:#fff;
+}
+
+#grannys{
+  background-color:#b27ef9;
+  color:#fff;
 }

@@ -135,7 +135,7 @@ function aparece() {
   <li><a href="#" id="home">Inicio</a></li>
   <li><a href="#" id="profile">My GifSaver</a></li>
   <li><a href="#" id="aboutus">About us</a></li>
-  <li><a href="#" id="close" onclick="cerrar()">Cerrar Sesión</a></li>
+  <li><a href="#" id="close" onclick="cerrar()">Log Out</a></li>
   `
 
   $('#home').click(function() {
