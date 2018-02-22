@@ -211,7 +211,7 @@ function userSearch(){
       $('input').val('');
       value = value.trim().replace(/\s+/g, '+');
 //inserta el valor del input en la url para hacer la busqueda
-      var url = 'http://api.giphy.com/v1/gifs/search?api_key=52Fc9WimSIVx01b8PKW9ICvYEHG4LNQ5&q=' + value + '"&limit=9&offset=0&rating=R';
+      var url = 'http://api.giphy.com/v1/gifs/search?api_key=52Fc9WimSIVx01b8PKW9ICvYEHG4LNQ5&q=' + value + '"&limit=15&offset=0&rating=R';
 
 /*
 Llama a la api, .getJSON es una abreviacion de:
@@ -261,7 +261,7 @@ success: success
       $('input').val('');
       value = value.trim().replace(/\s+/g, '+');
 //inserta el valor del input en la url para hacer la busqueda
-      var url = 'http://api.giphy.com/v1/gifs/search?api_key=52Fc9WimSIVx01b8PKW9ICvYEHG4LNQ5&q=' + value + '"&limit=9&offset=0&rating=R';
+      var url = 'http://api.giphy.com/v1/gifs/search?api_key=52Fc9WimSIVx01b8PKW9ICvYEHG4LNQ5&q=' + value + '"&limit=15&offset=0&rating=R';
 
 /*
 Llama a la api, .getJSON es una abreviacion de:

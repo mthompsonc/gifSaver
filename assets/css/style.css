@@ -15,10 +15,23 @@ body{
 
 }
 
-
 .logo{
   width: 3.4em;
   margin-top: -16px;
+}
+
+.btn{
+  color:#FFFFFF;
+  border: none;
+}
+
+.btn1{
+  background-color: #FF12EA;
+  
+}
+
+.btn2{
+  background-color: #3CFFF6;
 }
 
 .giphyLogo{
