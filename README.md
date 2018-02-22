@@ -22,6 +22,10 @@ GifSaver es una single web app que utiliza la API de Giphy que es una libreria d
 
 ![img](https://image.ibb.co/jTwSax/login.png)
 
+## Search cuando uno ingresa con usuario.
+
+![img](https://image.ibb.co/mdBtFx/login_search.png)
+
 # Autores
 
 * Andrea Diaz
