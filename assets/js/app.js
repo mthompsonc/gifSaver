@@ -108,7 +108,7 @@ function observador() {
       var isAnonymous = user.isAnonymous;
       var uid = user.uid;
       var providerData = user.providerData;
-      
+
       $('#hi').append(`<h1>Hi ${email}!</h1>`);
       // ...
     } else {
@@ -254,6 +254,7 @@ success: success
       $('#aboutus1').hide();
 
       $( ".containerImg" ).empty();
+      $('#alert').append('<div class="row"><div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><div class="alert text-center"><p><strong>Alert: Only if you are registered you can have full access to download gifs. </strong></p></div></div></div>');
 //toma el valor del input y reemplaza los espacios con +
       var value = $('input').val();
       $('input').val('');
@@ -281,7 +282,7 @@ success: success
 */
           var url = gif.images.fixed_height.url;
           var urlHref = gif.images.downsized.url;
-          console.log(url)
+          console.log(url);
 //inyecta la url en el contenedor de la imagen
           var image = $('<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="margin-top: 1em; margin-bottom: 1em;"><div class="thumbnail"><img src="' + url + '" class="center-block img-responsive" style="height: 200px"></div></div>');
           image.appendTo($('.containerImg'));

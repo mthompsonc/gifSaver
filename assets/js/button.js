@@ -71,7 +71,7 @@ function showBabiesGifs(response) {
 	}
 }
 
-//  cuarto llamado ajax
+// cuarto llamado ajax
 function showGrandma() {
 	$.ajax({
 		url: 'http://api.giphy.com/v1/gifs/search?q=grandma&api_key=52Fc9WimSIVx01b8PKW9ICvYEHG4LNQ5&limit=15&offset=0&rating=R&lang=en',
