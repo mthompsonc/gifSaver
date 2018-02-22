@@ -24,7 +24,7 @@ function showCats() {
 function showCatsGifs(response) {
 	$('.containerImg').empty();
 	for (let i = 0; i < response.data.length; i++) {
-		$(`<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="margin-top: 1em; margin-bottom: 1em;"><div class="thumbnail"><img class="center-block img-responsive" src="${response.data[i].images.fixed_height.url}" alt="${response.data[i].title}" style="height: 200px"><div class="caption text-right"><h5><a href="#"><i class="fas fa-heart" style="color: #8E8D91; margin-right: 2em;"></i></a></h5></div></div></div>`).appendTo('.containerImg');
+		$(`<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="margin-top: 1em; margin-bottom: 1em;"><div class="thumbnail"><img class="center-block img-responsive" src="${response.data[i].images.fixed_height.url}" alt="${response.data[i].title}" style="height: 200px"><div class="caption text-right"><h5><a href="${response.data[i].images.downsized.url}" target="_blank"><i class="fas fa-heart" style="color: #8E8D91; margin-right: 2em;"></i></a></h5></div></div></div>`).appendTo('.containerImg');
 	}
 }
 //  segundo llamado ajax
@@ -45,7 +45,7 @@ function showDogs() {
 function showDogsGifs(response) {
 	$('.containerImg').empty();
 	for (let i = 0; i < response.data.length; i++) {
-		$(`<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="margin-top: 1em; margin-bottom: 1em;"><div class="thumbnail"><img class="center-block img-responsive" src="${response.data[i].images.fixed_height.url}" alt="${response.data[i].title}" style="height: 200px"><div class="caption text-right"><h5><a href="#"><i class="fas fa-heart" style="color: #8E8D91; margin-right: 2em;"></i></a></h5></div></div></div>`).appendTo('.containerImg');		
+		$(`<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="margin-top: 1em; margin-bottom: 1em;"><div class="thumbnail"><img class="center-block img-responsive" src="${response.data[i].images.fixed_height.url}" alt="${response.data[i].title}" style="height: 200px"><div class="caption text-right"><h5><a href="${response.data[i].images.downsized.url}" target="_blank"><i class="fas fa-heart" style="color: #8E8D91; margin-right: 2em;"></i></a></h5></div></div></div>`).appendTo('.containerImg');		
 	}
 }
 
@@ -67,7 +67,7 @@ function showBabies() {;
 function showBabiesGifs(response) {
 	$('.containerImg').empty();
 	for (let i = 0; i < response.data.length; i++) {
-		$(`<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="margin-top: 1em; margin-bottom: 1em;"><div class="thumbnail"><img class="center-block img-responsive" src="${response.data[i].images.fixed_height.url}" alt="${response.data[i].title}" style="height: 200px"><div class="caption text-right"><h5><a href="#"><i class="fas fa-heart" style="color: #8E8D91; margin-right: 2em;"></i></a></h5></div></div></div>`).appendTo('.containerImg');
+		$(`<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="margin-top: 1em; margin-bottom: 1em;"><div class="thumbnail"><img class="center-block img-responsive" src="${response.data[i].images.fixed_height.url}" alt="${response.data[i].title}" style="height: 200px"><div class="caption text-right"><h5><a href="${response.data[i].images.downsized.url}" target="_blank"><i class="fas fa-heart" style="color: #8E8D91; margin-right: 2em;"></i></a></h5></div></div></div>`).appendTo('.containerImg');
 	}
 }
 
@@ -89,6 +89,6 @@ function showGrandma() {
 function showGrandmaGifs(response) {
 	$('.containerImg').empty();
 	for (let i = 0; i < response.data.length; i++) {
-		$(`<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="margin-top: 1em; margin-bottom: 1em;"><div class="thumbnail"><img class="center-block img-responsive" src="${response.data[i].images.fixed_height.url}" alt="${response.data[i].title}" style="height: 200px"><div class="caption text-right"><h5><a href="#"><i class="fas fa-heart" style="color: #8E8D91; margin-right: 2em;"></i></a></h5></div></div></div>`).appendTo('.containerImg');
+		$(`<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="margin-top: 1em; margin-bottom: 1em;"><div class="thumbnail"><img class="center-block img-responsive" src="${response.data[i].images.fixed_height.url}" alt="${response.data[i].title}" style="height: 200px"><div class="caption text-right"><h5><a href="${response.data[i].images.downsized.url}" target="_blank"><i class="fas fa-heart" style="color: #8E8D91; margin-right: 2em;"></i></a></h5></div></div></div>`).appendTo('.containerImg');
 	}
 }

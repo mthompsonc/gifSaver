@@ -195,9 +195,10 @@ success: success
 *imagenes tengan un tamaño fijo
 */
           var url = gif.images.fixed_height.url;
+          var urlHref = gif.images.downsized.url;
           console.log(url)
 //inyecta la url en el contenedor de la imagen
-          var image = $('<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="margin-top: 1em; margin-bottom: 1em;"><div class="thumbnail"><img src="' + url + '" class="center-block img-responsive" style="height: 200px"><div class="caption text-right"><h5><a href="#"><i class="fas fa-heart" style="color: #8E8D91; margin-right: 2em;"></i></a></h5></div></div></div>');
+          var image = $('<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="margin-top: 1em; margin-bottom: 1em;"><div class="thumbnail"><img src="' + url + '" class="center-block img-responsive" style="height: 200px"><div class="caption text-right"><h5><a href="' + urlHref + '" target="_blank"><i class="fas fa-heart" style="color: #8E8D91; margin-right: 2em;"></i></a></h5></div></div></div>');
           image.appendTo($('.containerImg'));
         });
       });
